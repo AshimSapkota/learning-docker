@@ -1,0 +1,29 @@
+version: "3.8"
+name: "main_container_of_compose"
+
+services:
+  web:
+    image: "imagename_config"
+    container_name: "my_node_container"
+    build:
+      dockerfile: ./Dockerfile
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+    environment:
+      DB_USER: myuser
+      DB_PORT: 5432
+      DB_NAME: mydatabase
+      DB_PASSWORD: mypassword   
+      DB_HOST: db    
+  db:
+    container_name: "my_db"
+    image: postgres
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      
+
+  
