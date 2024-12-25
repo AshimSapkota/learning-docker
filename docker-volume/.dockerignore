@@ -1,0 +1,5 @@
+Dockerfile
+node_modules
+package.json
+pnpm-lock.yml
+.dockerignore
